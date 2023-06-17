@@ -58,7 +58,7 @@ module.exports = {
     const { id: bookingId, qty = 0 } = result;
     console.log(bookingId);
 
-    const tickets = [];
+    // need to use this pattern if we want to use relation https://docs.strapi.io/dev-docs/api/rest/relations#connect
     for (let i = 0; i < qty; i++) {
       await strapi.db.query("api::ticket.ticket").create({
         data: {
