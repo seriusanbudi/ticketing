@@ -56,14 +56,16 @@ module.exports = {
     const { result } = event;
 
     const { id: bookingId, qty = 0 } = result;
+    console.log(bookingId);
+
     const tickets = [];
     for (let i = 0; i < qty; i++) {
-      tickets.push({ code: uuidv4(), booking: bookingId });
+      await strapi.db.query("api::ticket.ticket").create({
+        data: {
+          code: uuidv4(),
+          booking: { connect: [bookingId] },
+        },
+      });
     }
-
-    // create tickets using strapi query for bulk insert
-    await strapi.db.query("api::ticket.ticket").createMany({
-      data: tickets,
-    });
   },
 };
