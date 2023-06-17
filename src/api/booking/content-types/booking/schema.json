@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "singularName": "booking",
+    "pluralName": "bookings",
+    "displayName": "Booking",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "event": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::event.event"
+    },
+    "user_fullname": {
+      "type": "string"
+    },
+    "user_email": {
+      "type": "string"
+    },
+    "user_phone": {
+      "type": "string"
+    },
+    "qty": {
+      "type": "integer"
+    },
+    "total_price": {
+      "type": "biginteger"
+    },
+    "discount": {
+      "type": "decimal"
+    },
+    "code": {
+      "type": "string"
+    },
+    "payment_token": {
+      "type": "text"
+    }
+  }
+}
